@@ -1,33 +1,18 @@
-version: "3"
+version: "2"
 
 services:
-  client:
-    build: ./client
-    ports:
-      - 8080:8080
-    volumes:
-      - ./client:/data
-    environment:
-      - API_URL=http://localhost:3000/
-
   server:
-    build: ./server
+    build: ./server/.
     ports:
       - 3000:3000
-    volumes:
-      - ./server:/data
-    depends_on:
-      - server-database
-    environment:
-      - DATABASE_URL=server-database:27017
 
-  server-database:
-    image: mysql
-      ports:
-      - 27017:27017
-    volumes:
-      - ./db:/data/db
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_ROOT_USER: root
+  client:
+    build: ./client/.
+    ports:
+      - 8080:8080
+    depends_on:
+      - server
+    links:
+      - server
+
 

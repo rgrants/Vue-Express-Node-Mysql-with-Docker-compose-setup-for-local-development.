@@ -1,14 +1,21 @@
-FROM node:carbon
+# Use Node v8 as the base image.
+FROM node:10
 
-COPY ./docker/entrypoint.sh /entrypoint/
+# create and set app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-RUN ["chmod", "+x", "entrypoint/entrypoint.sh"]
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+RUN npm install
 
-# Copy or mount node app here
-WORKDIR /data/
+# Bundle app source
+COPY . .
+
+RUN npm rebuild bcrypt --build-from-source
 
 EXPOSE 3000
-
-ENTRYPOINT ["/entrypoint/entrypoint.sh"]
-
+# Run app
 CMD ["npm", "start"]
