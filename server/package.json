@@ -1,0 +1,35 @@
+{
+  "name": "nodelogin",
+  "version": "1.0.0",
+  "description": "NodejsLogin",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^11.11.0",
+    "bcrypt": "^3.0.5",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "google-play-scraper": "^6.2.3",
+    "googleapis": "^38.0.0",
+    "grant": "^4.5.0",
+    "grant-express": "^4.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mariadb": "^2.0.5",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.0",
+    "mysql": "github:mysqljs/mysql",
+    "node-oauth": "^0.1.3",
+    "node-schedule": "^1.3.2",
+    "oauth": "^0.9.15",
+    "pg": "^7.8.2",
+    "pg-format": "^1.0.4",
+    "pg-promise": "^8.6.4",
+    "request": "^2.88.0"
+  }
+}
