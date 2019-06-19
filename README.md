@@ -23,3 +23,5 @@ There are 3 parts to this dockerized Vue app: Frontend (Vue), Backend (Node with
 
 The frontend is in the 'client' folder, backend in the 'server' folder, and the database is mounted to your current directory in the 'db' folder.
 ![alt text](https://github.com/LawlesssHeaven/QuickInsert/blob/master/Capture.PNG)
+
+Application is inserting timestamps into database every 60 seconds using Node.js scheduler and MYSQL database. After you turn it on using START button it will run in backend without user interaction. You can stop it and re-run any time you want. Below START/STOP buttons you can see last 5 inserts. Pagination is used in VUE part to display data.
