@@ -1,10 +1,9 @@
 Vue, Express, Node, Mysql with Docker-compose setup for local development.
 
-Tutorial here:
 
 Steps to Run
 Clone this repository
-git clone https://github.com/jamesaud/VENoM-Docker
+git clone https://github.com/LawlesssHeaven/QuickInsert.git
 
 Navigate into the directory QuickInsert
 cd your-path-to/QuickInsert
