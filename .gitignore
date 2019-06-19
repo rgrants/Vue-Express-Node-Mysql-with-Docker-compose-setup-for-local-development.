@@ -1,5 +1,0 @@
-# exclude everything
-db/*
-!db/.gitignore
-
-node_modules/

@@ -1,14 +1,13 @@
-FROM node:carbon
+FROM node:10
 
-COPY ./docker/entrypoint.sh /entrypoint/
+WORKDIR /usr/src/server
 
-RUN ["chmod", "+x", "entrypoint/entrypoint.sh"]
+COPY package*.json ./
 
-# Copy or mount node app here
-WORKDIR /data/
+RUN npm install
+
+COPY . .
 
 EXPOSE 3000
-
-ENTRYPOINT ["/entrypoint/entrypoint.sh"]
 
 CMD ["npm", "start"]

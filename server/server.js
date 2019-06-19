@@ -19,34 +19,7 @@ app.use(bodyParser.json({
 app.use(cors());
 app.use(require('./api/routing'));
 
-app.post('/startTask', (request, response) => {
-    var myString = request.body.String;
 
-    console.log(myString);
-    if (myString === 'true') {
-        executeMyTask();
-
-    }else if (myString === 'false'){
-        cancelMyTask();
-
-    }
-    response.send('Done');
-});
-
-
-function executeMyTask() {
-    schedule.scheduleJob("myTask",'*/1 * * * *', function () {
-        pool.query("INSERT INTO test_database.test_table (date_time) VALUES (current_time())", (error, results) => {
-            console.log("JOB STARTED");
-        });
-    });
-}
-
-function cancelMyTask() {
-    schedule.cancelJob("myTask");
-    console.log("Canceled Job myTask");
-
-}
 
 process.on('unhandledRejection', (reason, promise) => {
     console.log('Unhandled Rejection at:', reason.stack || reason)
@@ -58,3 +31,5 @@ process.on('unhandledRejection', (reason, promise) => {
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
 });
+
+

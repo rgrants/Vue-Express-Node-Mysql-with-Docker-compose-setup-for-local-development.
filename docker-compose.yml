@@ -1,33 +1,50 @@
 version: "3"
 
 services:
-  client:
-    build: ./client
-    ports:
-      - 8080:8080
-    volumes:
-      - ./client:/data
-    environment:
-      - API_URL=http://localhost:3000/
-
-  server:
-    build: ./server
-    ports:
-      - 3000:3000
-    volumes:
-      - ./server:/data
-    depends_on:
-      - server-database
-    environment:
-      - DATABASE_URL=server-database
-
   server-database:
-    image: mysql
+    container_name: db
+    image: mysql:5.6
+    build: ./db
     ports:
-      - 8082:8082
+      - "3306:3306"
     volumes:
       - ./db:/data/db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: root
       MYSQL_DATABASE: test_database
+
+
+
+  client:
+    container_name: docker-vue
+    restart: always
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    links:
+      - server-database
+    depends_on:
+      - server
+
+
+  server:
+    container_name: docker-node-final
+    restart: on-failure
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    links:
+      - server-database
+    depends_on:
+      - server-database
+
+
+
+
+
+
+

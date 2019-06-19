@@ -2,7 +2,7 @@
 import PostService from '../PostService'
 import Pagination from './Pagination.vue'
 import axios from 'axios';
-
+/* eslint-disable */
 export default {
     name: 'PostComponent',
     data() {
@@ -47,25 +47,24 @@ export default {
                 this.updatePage(this.currentPage - 1);
             }
         },
-        startScheduler: function () {
-            axios({
-                method: 'post',
-                url: 'http://localhost:3000/startTask',
-                data: {
-                    String: 'true'
-                }
-            });
 
+        startScheduler () {
+            axios.post('http://localhost:3000/startTask', {
+                String: 'true'
+            }).then((response) => {})
+                .catch((e) => {
+                    console.error(e)
+                })
 
         },
-        stopScheduler: function () {
-            axios({
-                method: 'post',
-                url: 'http://localhost:3000/startTask',
-                data: {
-                    String: 'false'
-                }
-            });
+        stopScheduler () {
+            axios.post('http://localhost:3000/startTask', {
+                String: 'false'
+            }).then((response) => {})
+                .catch((e) => {
+                    console.error(e)
+                })
+
         },
         onPrevious: function() {
             this.index -= 1;
