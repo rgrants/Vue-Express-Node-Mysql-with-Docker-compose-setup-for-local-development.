@@ -28,3 +28,5 @@ Database is pre-configured for you. More can be seen in DB folder
 ![alt text](https://github.com/LawlesssHeaven/QuickInsert/blob/master/Capture.PNG)
 
 Application is inserting timestamps into database every 60 seconds using Node.js scheduler and MYSQL database. After you turn it on using START button it will run in backend without user interaction. You can stop it and re-run any time you want. Below START/STOP buttons you can see last 5 inserts. Pagination is used in VUE part to display data.
+
+TESTED ON : W10,VM UBUNTU 18.04
