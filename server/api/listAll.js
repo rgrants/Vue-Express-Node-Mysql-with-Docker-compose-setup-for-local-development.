@@ -9,9 +9,6 @@ const getListOfThemes = (request, response) => {
     var page = 0 * count;
 
 
-    // At first a thought I could use database built in pagination but then i decided just to consume everything on vue part.
-//  LIMIT ?, ?
-
             pool.query('SELECT * FROM test_table ORDER BY  date_time DESC ', [page, count], function (error, results) {
                 if (error) {
                     console.log(error);
