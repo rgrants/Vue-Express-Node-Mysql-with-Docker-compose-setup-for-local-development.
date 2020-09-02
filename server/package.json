@@ -17,7 +17,7 @@
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "google-play-scraper": "^6.2.3",
-    "googleapis": "^38.0.0",
+    "googleapis": "^39.1.0",
     "grant": "^4.5.0",
     "grant-express": "^4.5.0",
     "jsonwebtoken": "^8.5.1",
